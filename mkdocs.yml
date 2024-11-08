@@ -2,3 +2,6 @@ site_name: My site
 site_url: https://eremichevs.github.io/my-docs/
 theme:
   name: material
+
+nav:
+  - home: index.md

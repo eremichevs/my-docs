@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout репозитория
+      # Checkout репозиторий
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -28,10 +28,9 @@ jobs:
       - name: Build and Deploy MkDocs site
         run: mkdocs gh-deploy --force
 
-      # Убедитесь, что токен доступен для деплоя на GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GH_TOKEN }}  # Используем ваш токен GH_TOKEN
+          github_token: ${{ secrets.GH_TOKEN }}
           publish_dir: ./site
           force_orphan: true

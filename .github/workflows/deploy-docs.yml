@@ -14,9 +14,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Disable Jekyll
-        run: touch site/.nojekyll
-
       # Установка Python и зависимостей
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -24,17 +21,8 @@ jobs:
           python-version: '3.9'
 
       - name: Install dependencies
-        run: |
-          pip install mkdocs mkdocs-material
+        run: pip install mkdocs mkdocs-material
 
-      # Сборка документации
-      - name: Build MkDocs site
+      # Сборка и деплой документации
+      - name: Build and Deploy MkDocs site
         run: mkdocs gh-deploy --force
-
-      # Деплой на GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          clean: true

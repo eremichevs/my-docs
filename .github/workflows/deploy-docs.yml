@@ -26,3 +26,10 @@ jobs:
       # Сборка и деплой документации
       - name: Build and Deploy MkDocs site
         run: mkdocs gh-deploy --force
+
+        - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}  # Убедитесь, что GITHUB_TOKEN имеет доступ на запись
+          publish_dir: ./site
+          force_orphan: true  # Используйте флаг force_orphan, чтобы создать новую ветку без истории

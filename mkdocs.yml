@@ -7,3 +7,7 @@ theme:
 nav:
   - home: index.md
   - pagetest: test.md
+  - obsidiad: razdeli.md
+
+plugins:
+  - obsidian-support

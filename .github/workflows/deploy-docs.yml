@@ -33,8 +33,3 @@ jobs:
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           publish_dir: ./site
-
-      - name: Add Obsidian support (если это нужно)
-        run: |
-            git clone https://github.com/obsidianmd/obsidian-releases.git
-            cd obsidian-releases
